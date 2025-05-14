@@ -12,12 +12,12 @@ import lombok.Setter;
 @Getter
 public class UserEntity {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-  private String username;
-  private String password;
+    private String username;
+    private String password;
 
-  private String role;
+    private String role;
 }

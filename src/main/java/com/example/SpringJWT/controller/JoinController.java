@@ -10,18 +10,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @ResponseBody
 public class JoinController {
 
-  private final JoinService joinService;
+    private final JoinService joinService;
 
-  public JoinController(JoinService joinService) {
-    this.joinService = joinService;
-  }
+    public JoinController(JoinService joinService) {
 
-  @PostMapping("/join")
-  public String joinProcess(JoinDTO joinDTO) {
+        this.joinService = joinService;
+    }
 
-    System.out.println(joinDTO.getUsername());
-    joinService.joinProcess(joinDTO);
+    @PostMapping("/join")
+    public String joinProcess(JoinDTO joinDTO) {
 
-    return "ok";
-  }
+        joinService.joinProcess(joinDTO);
+
+        return "ok";
+    }
 }
