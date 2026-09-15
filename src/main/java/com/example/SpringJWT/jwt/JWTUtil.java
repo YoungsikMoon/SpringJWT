@@ -15,6 +15,10 @@ public class JWTUtil {
     private SecretKey secretKey;
 
     public JWTUtil(@Value("${spring.jwt.secret}")String secret) {
+        if (secret == null || secret.isBlank() || secret.getBytes(StandardCharsets.UTF_8).length < 32) {
+            throw new IllegalArgumentException("JWT_SECRET must contain at least 32 UTF-8 bytes");
+        }
+
 
         this.secretKey = new SecretKeySpec(secret.getBytes(StandardCharsets.UTF_8), Jwts.SIG.HS256.key().build().getAlgorithm());
     }
